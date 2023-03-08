@@ -34,8 +34,8 @@ const Chat = () => {
     })
     return (
         <div className='mt-[10vh] grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1'>
-            <video className='rounded-lg' ref={myVideoRef} muted autoPlay></video>
-            <video ref={friVideoRef} muted autoPlay></video>
+            <video className='rounded-lg' ref={myVideoRef} autoPlay></video>
+            <video ref={friVideoRef} autoPlay></video>
         </div>
     );
 }
