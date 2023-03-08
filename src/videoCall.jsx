@@ -8,7 +8,7 @@ const Chat = () => {
     const friVideoRef = useRef();
     const peers = {};
     const peer = new Peer();
-    const socket = io("ws://localhost:5000");
+    const socket = io("https://video-call-ob4g.onrender.com");
     peer.on("open",id=>{
         alert(id);
         socket.emit("join",{room,id});
