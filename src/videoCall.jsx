@@ -10,7 +10,6 @@ const Chat = () => {
     const peer = new Peer();
     const socket = io("https://video-call-ob4g.onrender.com");
     peer.on("open",id=>{
-        alert(id);
         socket.emit("join",{room,id});
     })
     navigator.mediaDevices.getUserMedia({video: true,audio:true})
