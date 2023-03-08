@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hanuman&family=Kavoon&family=Lato:wght@300&family=Noto+Sans+Khmer&family=Noto+Serif+Toto&family=Open+Sans&family=Patua+One&family=Playfair+Display:wght@500&family=Roboto+Mono:wght@500&family=Roboto:wght@500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components{
+  *{
+    @apply font-noto text-base text-white m-0 p-0
+  }
+  body{
+    @apply bg-gradient-to-r from-[#6875eb] via-[#77c2d9] to-[#90fa89]
+  }
+}
