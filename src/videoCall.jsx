@@ -12,7 +12,7 @@ const Chat = () => {
     peer.on("open",id=>{
         socket.emit("join",{room,id});
     })
-    navigator.mediaDevices.getUserMedia({video:{facingMode: 'environment'},audio:true})
+    navigator.mediaDevices.getUserMedia({video:{facingMode: {exact:"user"},},audio:true})
     .then(ownVideo=>{
         myVideoRef.current.srcObject = ownVideo;
         peer.on("call",call=>{
