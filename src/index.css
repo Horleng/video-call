@@ -7,6 +7,6 @@
     @apply font-noto text-base text-white m-0 p-0
   }
   body{
-    @apply bg-gradient-to-r from-[#6875eb] via-[#77c2d9] to-[#90fa89]
+    @apply bg-gradient-to-r from-[#6875eb] via-[#77c2d9] to-[#90fa89] overflow-hidden
   }
 }

@@ -4,7 +4,7 @@ import Join from './Join';
 import VideoCall from './videoCall';
 const App = () => {
   return (
-    <div className='h-[100vh] lg:w-[80%] w-[90%] mx-auto'>
+    <div className='h-[100vh] lg:w-[80%] w-[100%] mx-auto overflow-y-auto'>
         <Routes>
           <Route path='/' element={<Join/>} />
           <Route path='/:room' element={<VideoCall/>} />
