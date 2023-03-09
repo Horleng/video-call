@@ -33,9 +33,12 @@ const Chat = () => {
         })
     })
     return (
-        <div className='mt-[10vh] grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1'>
-            <video className='rounded-lg' ref={myVideoRef} autoPlay></video>
-            <video ref={friVideoRef} autoPlay></video>
+        <div>
+            <span className='flex justify-center items-center mt-10 md:text-4xl text-2xl font-extrabold'>Videos Calling</span>
+            <div className='mt-[10vh] grid place-content-center lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1'>
+                <video className='rounded-lg md:w-[500px] sm:w-[300px] w-[100%]'  ref={myVideoRef} autoPlay></video>
+                <video className='rounded-lg  md:w-[500px] sm:w-[300px] w-[100%]' ref={friVideoRef} autoPlay></video>
+            </div>
         </div>
     );
 }
