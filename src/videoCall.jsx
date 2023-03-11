@@ -100,7 +100,7 @@ const Chat = () => {
     const addStream = (stream,video)=>{
         const friStreamCover = document.querySelector("#friStreamCover");
         friStreamCover.classList.replace("hidden","grid");
-        video.classList.add("w-full","h-auto"," rounded-lg ");
+        video.classList.add("w-full","h-auto","rounded-lg");
         video.srcObject = stream;
         video.addEventListener("loadedmetadata",()=>{
             video.play();
