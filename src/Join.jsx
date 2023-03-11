@@ -2,6 +2,14 @@ import React, {useEffect, useRef} from 'react';
 import {useNavigate } from 'react-router-dom';
 const Join = () => {
     const room = useRef();
+    Notification.requestPermission(permissions=>{
+      if(permissions==="granted"){
+         new Notification("Hello guy!",{
+          body:"Wellcome to my website ❤️.",
+          icon:"./Logo.jpg"
+         })
+      }
+    });
     useEffect(()=>{
       const inp = document.querySelector('#room');
       const myLabel = document.querySelector(".label").classList;

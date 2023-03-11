@@ -17,10 +17,6 @@ const Chat = () => {
             window.id = id;
             socket.emit("join",{room,id});
         })
-        Notification.requestPermission(per=>{
-            if(per ==="granted")
-                pushNotification("Wellcome to my website<p>&#x2764;&#xFE0F;</p>");
-        })
     });
     const screenShare = async()=>{
         await navigator.mediaDevices.getDisplayMedia({audio:false})
@@ -96,7 +92,7 @@ const Chat = () => {
         pushNotification("Your friends was left");
     });
     const pushNotification = (title)=>{
-        const show = new Notification("Hey, Hello guy!",{
+        const show = new Notification("Hello dear user",{
             body:title,
             icon:"./Logo.jpg"
         })
