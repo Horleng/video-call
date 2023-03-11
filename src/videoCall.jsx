@@ -29,7 +29,7 @@ const Chat = () => {
     const openCameraOnPhone = async()=>{
         // let cameraType = "enviroment";
         // if(i%2)  cameraType = "user";
-        await navigator.mediaDevices.getUserMedia({video:{facingMode: {exact:"enviroment"},},audio:true})
+        await navigator.mediaDevices.getUserMedia({video:{facingMode: {exact:"environment"},},audio:true})
         .then(ownStream=>{
             shareCloser();
             document.querySelector("#ownStream").srcObject = ownStream;
