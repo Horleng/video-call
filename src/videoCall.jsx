@@ -34,8 +34,8 @@ const Chat = () => {
             shareCloser();
             document.querySelector("#ownStream").srcObject = ownStream;
             window.localStream = ownStream;
-            i++;
         });
+        i++;
     }
     const openCamera = async()=>{
         await navigator.mediaDevices.getUserMedia({video:{facingMode:"user",},audio:true})
