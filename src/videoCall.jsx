@@ -149,7 +149,7 @@ const Chat = () => {
                             <AiFillVideoCamera onClick={changeToCamera} fill='gray' size="30px" className='sm:block hidden'/>
                             <MdOutlineFlipCameraIos onClick={changeToPhoneCamera} fill='gray' size="30px" className='sm:hidden block'/>
                         </button>
-                        <button className='md:block hidden'>
+                        <button className='sm:block hidden'>
                             <SlScreenDesktop onClick={changeToScreen} fill='gray' size="30px"/>
                         </button>
                     </div>
