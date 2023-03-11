@@ -29,13 +29,17 @@ const Chat = () => {
     const openCameraOnPhone = async()=>{
         let cameraType = "environment";
         if(i%2)  cameraType = "user";
-        await navigator.mediaDevices.getUserMedia({video:{facingMode:cameraType,},audio:true})
-        .then(ownStream=>{
-            shareCloser();
-            document.querySelector("#ownStream").srcObject = ownStream;
-            window.localStream = ownStream;
-            i++;
-        });
+        try{
+            if(window.localStream) shareCloser();
+            await navigator.mediaDevices.getUserMedia({video:{facingMode:cameraType,},audio:true})
+            .then(ownStream=>{
+                document.querySelector("#ownStream").srcObject = ownStream;
+                window.localStream = ownStream;
+                i++;
+            });
+        }catch(err){
+            alert(err);
+        }
     }
     const openCamera = async()=>{
         await navigator.mediaDevices.getUserMedia({video:{facingMode:"user",},audio:true})
