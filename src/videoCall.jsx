@@ -9,7 +9,7 @@ const Chat = () => {
     const {room} = useParams();
     const peer = new Peer();
     const peers = {};
-    const socket = io("https://kh-videocall.netlify.app");
+    const socket = io("https://video-call-ob4g.onrender.com");
     var videoUnique = [];
     var i=0;
     peer.on("open",async(id)=>{
