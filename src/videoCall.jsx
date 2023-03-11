@@ -12,10 +12,11 @@ const Chat = () => {
     const socket = io("https://video-call-ob4g.onrender.com");
     var videoUnique = [];
     var i=0;
-    peer.on("open",(id)=>{
-        openCamera();
-        window.id = id;
-        socket.emit("join",{room,id});
+    peer.on("open",async(id)=>{
+        await openCamera().then(()=>{
+            window.id = id;
+            socket.emit("join",{room,id});
+        })
     });
     const screenShare = async()=>{
         await navigator.mediaDevices.getDisplayMedia({audio:false})
@@ -26,8 +27,8 @@ const Chat = () => {
         })
     }
     const openCameraOnPhone = async()=>{
-        let cameraType = "user";
-        if(i%2)  cameraType = "enviroment";
+        let cameraType = "enviroment";
+        if(i%2)  cameraType = "user";
         await navigator.mediaDevices.getUserMedia({video:{facingMode: {exact:cameraType},},audio:true})
         .then(ownStream=>{
             shareCloser();
@@ -42,7 +43,6 @@ const Chat = () => {
             shareCloser();
             document.querySelector("#ownStream").srcObject = ownStream;
             window.localStream = ownStream;
-            i++;
         });
     }
     const shareCloser = ()=>{
@@ -149,7 +149,7 @@ const Chat = () => {
                             <AiFillVideoCamera onClick={changeToCamera} fill='gray' size="30px" className='sm:block hidden'/>
                             <MdOutlineFlipCameraIos onClick={changeToPhoneCamera} fill='gray' size="30px" className='sm:hidden block'/>
                         </button>
-                        <button>
+                        <button className='md:block hidden'>
                             <SlScreenDesktop onClick={changeToScreen} fill='gray' size="30px"/>
                         </button>
                     </div>
