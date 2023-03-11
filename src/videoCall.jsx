@@ -27,15 +27,15 @@ const Chat = () => {
         })
     }
     const openCameraOnPhone = async()=>{
-        // let cameraType = "enviroment";
-        // if(i%2)  cameraType = "user";
-        await navigator.mediaDevices.getUserMedia({video:{facingMode: {exact:"environment"},},audio:true})
+        let cameraType = "environment";
+        if(i%2)  cameraType = "user";
+        await navigator.mediaDevices.getUserMedia({video:{facingMode:cameraType,},audio:true})
         .then(ownStream=>{
             shareCloser();
             document.querySelector("#ownStream").srcObject = ownStream;
             window.localStream = ownStream;
+            i++;
         });
-        // i++;
     }
     const openCamera = async()=>{
         await navigator.mediaDevices.getUserMedia({video:{facingMode:"user",},audio:true})
