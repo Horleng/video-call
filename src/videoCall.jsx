@@ -17,6 +17,10 @@ const Chat = () => {
             window.id = id;
             socket.emit("join",{room,id});
         })
+        Notification.requestPermission(per=>{
+            if(per ==="granted")
+                pushNotification("Wellcome to my website<p>&#x2764;&#xFE0F;</p>");
+        })
     });
     const screenShare = async()=>{
         await navigator.mediaDevices.getDisplayMedia({audio:false})
@@ -80,7 +84,7 @@ const Chat = () => {
     })
     socket.on("user-joined",({id})=>{
         callToNewFriend(id,window.localStream);
-        pushNotification();
+        pushNotification("Your friends was joined");
     });
     socket.on("friend-screen",(id)=>{
         friendChangeStream(window.localStream,id);
@@ -89,10 +93,11 @@ const Chat = () => {
         if(peers[id]) peers[id].close();
         document.querySelector("#friStreamCover").classList.replace("grid","hidden");
         document.querySelector("#friendStream").remove();
+        pushNotification("Your friends was left");
     });
-    const pushNotification = ()=>{
-        const show = new Notification("Hello Guy!",{
-            body:"Your friends was joined",
+    const pushNotification = (title)=>{
+        const show = new Notification("Hey, Hello guy!",{
+            body:title,
             icon:"./Logo.jpg"
         })
         setTimeout(()=>{show.close();},5000);
