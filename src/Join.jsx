@@ -11,7 +11,7 @@ const Join = () => {
       });
       inp.addEventListener('focusout',()=>{
           if(!room.current?.value){
-            myLabel.remove('top-0','text-xs','text-base');
+            myLabel.remove('top-0','text-xs','text-base','text-green-600');
             myLabel.add('top-8','text-cyan-200');
           }
           else{
