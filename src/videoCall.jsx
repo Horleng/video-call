@@ -9,7 +9,7 @@ const Chat = () => {
     const {room} = useParams();
     const peer = new Peer();
     const peers = {};
-    const socket = io("https://video-call-ob4g.onrender.com");
+    const socket = io("https://kh-videocall.netlify.app");
     var videoUnique = [];
     var i=0;
     peer.on("open",async(id)=>{
@@ -31,7 +31,14 @@ const Chat = () => {
         if(i%2)  cameraType = "user";
         try{
             if(window.localStream) shareCloser();
-            await navigator.mediaDevices.getUserMedia({video:{facingMode:cameraType,},audio:true})
+            await navigator.mediaDevices.getUserMedia({
+                video:{
+                    facingMode:cameraType,
+                    width:{min:200,max:500},
+                    height:{min:100,max:500}
+                }
+                ,audio:true
+            })
             .then(ownStream=>{
                 document.querySelector("#ownStream").srcObject = ownStream;
                 window.localStream = ownStream;
@@ -93,7 +100,7 @@ const Chat = () => {
     const addStream = (stream,video)=>{
         const friStreamCover = document.querySelector("#friStreamCover");
         friStreamCover.classList.replace("hidden","grid");
-        video.classList.add("lg:w-[450px]","h-[360px]","rounded-lg");
+        video.classList.add("w-full","h-auto"," rounded-lg ");
         video.srcObject = stream;
         video.addEventListener("loadedmetadata",()=>{
             video.play();

@@ -5,19 +5,17 @@ const Join = () => {
     useEffect(()=>{
       const inp = document.querySelector('#room');
       inp.addEventListener('focusin',()=>{
-        document.querySelector(".label").classList.remove('top-8');
-        document.querySelector(".label").classList.add('text-xs');
-        document.querySelector(".label").classList.add('top-0');
+        document.querySelector(".label").classList.toggle('top-8');
+        document.querySelector(".label").classList.add('text-[10px]','top-0');
       });
       inp.addEventListener('focusout',()=>{
           if(!room){
-            document.querySelector(".label").classList.remove('text-xs');
-            document.querySelector(".label").classList.remove('top-0');
+            document.querySelector(".label").classList.remove('top-0','text-[10px]');
             document.querySelector(".label").classList.add('top-8');
           }
           else{
-            document.querySelector(".label").classList.add('text-xs');
             document.querySelector(".label").classList.remove('top-8');
+            document.querySelector(".label").classList.add('text-[10px]');
           }
       });
     },[room]);
