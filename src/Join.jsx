@@ -15,7 +15,7 @@ const Join = () => {
             myLabel.add('top-8','text-cyan-200');
           }
           else{
-            myLabel.remove('top-8');
+            myLabel.remove('top-8','text-base','text-cyan-200');
             myLabel.toggle('text-xs','text-green-600');
           }
       });
